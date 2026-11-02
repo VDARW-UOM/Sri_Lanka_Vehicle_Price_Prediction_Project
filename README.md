@@ -6,6 +6,10 @@
 
 Two Jupyter notebooks and a Streamlit app. Notebook 01 cleans and explores the data; Notebook 02 trains, selects and tests six regressors (including a glass-box **Explainable Boosting Machine, EBM**) under one protocol and explains them with global and local XAI; the app serves the resulting price estimates and explanations.
 
+**Live app (Streamlit Community Cloud):** https://srilankavehiclepricepredictionproject-qpxf6lfrt2547rgriw7pir.streamlit.app/
+
+**Source code (GitHub):** https://github.com/VDARW-UOM/Sri_Lanka_Vehicle_Price_Prediction_Project
+
 ## Files
 
 | File | What it contains |
