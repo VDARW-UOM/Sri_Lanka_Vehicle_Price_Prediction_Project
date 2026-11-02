@@ -1,0 +1,72 @@
+{
+  "source": "ikman-scrapes.csv",
+  "raw_rows": 10388,
+  "rules": {
+    "exact_duplicates_removed": 1833,
+    "missing_or_nonpositive_price_removed": 0,
+    "price_over_1b_removed": 1,
+    "invalid_year_removed": 0,
+    "older_zero_mileage_set_missing": 8,
+    "extreme_mileage_set_missing": 13,
+    "electric_cc_set_missing": 85,
+    "implausible_cc_set_missing": 9,
+    "low_price_recent_flagged_not_removed": 3
+  },
+  "flags": {
+    "price_over_1b_examples": [
+      {
+        "Brand": "Mazda",
+        "Model": "3",
+        "ManufactureYear": 2023.0,
+        "PriceLKR": 21500000000.0
+      }
+    ],
+    "low_price_recent_examples": [
+      {
+        "Brand": "Toyota",
+        "Model": "Raize",
+        "ManufactureYear": 2025,
+        "PriceLKR": 1430000.0
+      },
+      {
+        "Brand": "Honda",
+        "Model": "Vezel",
+        "ManufactureYear": 2023,
+        "PriceLKR": 1780000.0
+      },
+      {
+        "Brand": "Honda",
+        "Model": "Vezel",
+        "ManufactureYear": 2025,
+        "PriceLKR": 1880000.0
+      }
+    ]
+  },
+  "assumptions": [
+    "Asking prices, not confirmed sales",
+    "Unknown scrape date / advertisement ID"
+  ],
+  "clean_rows": 8554,
+  "missing_after_cleaning": {
+    "Brand": 0,
+    "Model": 0,
+    "Edition": 0,
+    "Transmission": 0,
+    "FuelType": 0,
+    "BodyType": 0,
+    "Negotiable": 0,
+    "ManufactureYear": 0,
+    "EngineCC": 94,
+    "MileageKM": 21,
+    "PriceLKR": 0
+  },
+  "price_quantiles_lkr": {
+    "0.0": 295000.0,
+    "0.01": 900000.0,
+    "0.25": 7150000.0,
+    "0.5": 10690000.0,
+    "0.75": 18437500.0,
+    "0.99": 109204999.99999902,
+    "1.0": 300000000.0
+  }
+}

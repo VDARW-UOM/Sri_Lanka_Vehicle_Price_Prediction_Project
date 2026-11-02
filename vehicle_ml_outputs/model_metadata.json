@@ -1,0 +1,139 @@
+{
+  "source": "Vehicle listings scraped from ikman.lk (advertised asking prices)",
+  "model": "XGBoost",
+  "selected_on": "validation MAE only",
+  "target": "PriceLKR",
+  "numeric_features": [
+    "ManufactureYear",
+    "EngineCC",
+    "MileageKM"
+  ],
+  "categorical_features": [
+    "Brand",
+    "Model",
+    "Edition",
+    "Transmission",
+    "FuelType",
+    "BodyType",
+    "Negotiable"
+  ],
+  "n_raw_cleaned": 8554,
+  "split_counts": {
+    "train": 5995,
+    "validation": 1274,
+    "test": 1285
+  },
+  "test_metrics": [
+    {
+      "Model": "Random Forest",
+      "MAE_LKR": 1878724.9896122045,
+      "RMSE_LKR": 6694040.903352559,
+      "R2": 0.9004416022909102,
+      "Median_APE_pct": 5.371036244833471,
+      "Observations": 1285
+    },
+    {
+      "Model": "XGBoost",
+      "MAE_LKR": 1970644.9768968872,
+      "RMSE_LKR": 6678515.731156125,
+      "R2": 0.9009028689311409,
+      "Median_APE_pct": 6.122594285714285,
+      "Observations": 1285
+    },
+    {
+      "Model": "LightGBM",
+      "MAE_LKR": 2163139.675162219,
+      "RMSE_LKR": 7127194.530845283,
+      "R2": 0.8871404276497726,
+      "Median_APE_pct": 6.683212634555889,
+      "Observations": 1285
+    },
+    {
+      "Model": "Decision Tree",
+      "MAE_LKR": 2199151.3888942846,
+      "RMSE_LKR": 7487122.199199018,
+      "R2": 0.8754536461772412,
+      "Median_APE_pct": 6.296667274660097,
+      "Observations": 1285
+    },
+    {
+      "Model": "EBM",
+      "MAE_LKR": 4987223.726834464,
+      "RMSE_LKR": 10511416.209570495,
+      "R2": 0.7545157460774853,
+      "Median_APE_pct": 23.9056069264863,
+      "Observations": 1285
+    },
+    {
+      "Model": "Median baseline",
+      "MAE_LKR": 10531083.98754864,
+      "RMSE_LKR": 22199013.40419215,
+      "R2": -0.0948850400501331,
+      "Median_APE_pct": 43.333333333333414,
+      "Observations": 1285
+    }
+  ],
+  "interpretable_model": {
+    "name": "EBM",
+    "file": "ebm_vehicle_price_model.pkl",
+    "output_unit": "million LKR (identity link); multiply by 1,000,000 for LKR",
+    "hyperparameters": {
+      "callback": null,
+      "cat_smooth": 10.0,
+      "cyclic_progress": false,
+      "early_stopping_rounds": 60,
+      "early_stopping_tolerance": 1e-05,
+      "exclude": null,
+      "feature_names": [
+        "Brand",
+        "Model",
+        "Edition",
+        "Transmission",
+        "FuelType",
+        "BodyType",
+        "Negotiable",
+        "ManufactureYear",
+        "EngineCC",
+        "MileageKM"
+      ],
+      "feature_types": [
+        "nominal",
+        "nominal",
+        "nominal",
+        "nominal",
+        "nominal",
+        "nominal",
+        "nominal",
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "gain_scale": 5.0,
+      "greedy_ratio": 10.0,
+      "inner_bags": 0,
+      "interaction_smoothing_rounds": 100,
+      "interactions": 0,
+      "learning_rate": 0.04,
+      "max_bins": 128,
+      "max_delta_step": 0.0,
+      "max_interaction_bins": 64,
+      "max_leaves": 2,
+      "max_rounds": 1200,
+      "min_cat_samples": 10,
+      "min_hessian": 0.0,
+      "min_samples_leaf": 8,
+      "missing": "separate",
+      "monotone_constraints": null,
+      "n_jobs": 2,
+      "objective": "rmse",
+      "outer_bags": 4,
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0,
+      "smoothing_rounds": 500,
+      "validation_size": 0.15
+    }
+  },
+  "price_unit": "LKR",
+  "note": "Predicts listing asking prices, not transacted market values"
+}
